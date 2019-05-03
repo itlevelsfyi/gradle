@@ -20,8 +20,7 @@ import groovy.lang.GroovyObject
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.Task
-import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.file.FileSystemLocationProperty
 import org.gradle.api.internal.AbstractTask
 import org.gradle.api.internal.ConventionTask
 import org.gradle.api.internal.GeneratedSubclasses
@@ -215,8 +214,7 @@ class DefaultInstantExecution(
 
     private
     fun unpack(fieldValue: Any?) = when (fieldValue) {
-        is DirectoryProperty -> fieldValue.asFile.orNull
-        is RegularFileProperty -> fieldValue.asFile.orNull
+        is FileSystemLocationProperty<*> -> fieldValue.asFile.orNull
         is Property<*> -> fieldValue.orNull
         is Supplier<*> -> fieldValue.get()
         is Function0<*> -> (fieldValue as (() -> Any?)).invoke()
@@ -250,8 +248,7 @@ class DefaultInstantExecution(
                 println("DESERIALIZED ${task.path} field $fieldName value $value")
                 @Suppress("unchecked_cast")
                 when (field.type) {
-                    DirectoryProperty::class.java -> (field.getFieldValue(task) as? DirectoryProperty)?.set(value as File)
-                    RegularFileProperty::class.java -> (field.getFieldValue(task) as? RegularFileProperty)?.set(value as File)
+                    FileSystemLocationProperty::class.java -> (field.getFieldValue(task) as? FileSystemLocationProperty<*>)?.set(value as File)
                     Property::class.java -> (field.getFieldValue(task) as? Property<Any>)?.set(value)
                     Supplier::class.java -> field.setValue(task, Supplier { value })
                     Function0::class.java -> field.setValue(task, { value })
