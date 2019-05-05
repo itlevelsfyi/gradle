@@ -18,11 +18,7 @@ package org.gradle.api.file;
 
 import org.gradle.api.Incubating;
 import org.gradle.api.model.ObjectFactory;
-import org.gradle.api.provider.Property;
 import org.gradle.api.provider.Provider;
-
-import javax.annotation.Nullable;
-import java.io.File;
 
 /**
  * Represents some configurable regular file location, whose value is mutable.
