@@ -59,15 +59,6 @@ enum class ModuleType(val compatibility: JavaVersion) {
     ENTRY_POINT(JavaVersion.VERSION_1_6),
 
     /**
-     * This module type is used by modules that contain code that needs to
-     * be able to run in worker JVMs where we usually support older Java
-     * versions.
-     * Some of these modules use APIs that are not available in the specified
-     * Java version but only in parts that are not called from workers.
-     */
-    WORKER(JavaVersion.VERSION_1_6),
-
-    /**
      * This module type is used by all modules that end up in the distribution
      * and are not used by entry points or workers.
      */
@@ -78,14 +69,6 @@ enum class ModuleType(val compatibility: JavaVersion) {
      * the distribution.
      */
     INTERNAL(JavaVersion.VERSION_1_8),
-
-    /**
-     * This module type is used for one-off modules that would normally use
-     * {@link #ENTRY_POINT} or {@link #WORKER} but explicitly require Java 8,
-     * e.g. due to the requirements of a downstream dependency (e.g. JUnit
-     * Platform).
-     */
-    REQUIRES_JAVA_8(JavaVersion.VERSION_1_8)
 }
 
 

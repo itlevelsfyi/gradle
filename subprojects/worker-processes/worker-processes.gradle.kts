@@ -13,7 +13,7 @@ dependencies {
 }
 
 gradlebuildJava {
-    moduleType = ModuleType.WORKER
+    moduleType = ModuleType.ENTRY_POINT
 }
 
 testFixtures {
