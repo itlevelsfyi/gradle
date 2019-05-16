@@ -30,7 +30,7 @@ import java.io.File;
  * <p><b>Note:</b> This interface is not intended for implementation by build script or plugin authors.</p>
  *
  * @param <T> The type of location.
- * @since 5.5
+ * @since 5.6
  */
 @Incubating
 public interface FileSystemLocationProperty<T extends FileSystemLocation> extends Property<T> {
