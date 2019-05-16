@@ -1,6 +1,6 @@
 
 > Task :producer
-Wrote 'Hello, World!' to /home/user/gradle/samples/groovy/output/file.txt
+Wrote 'Hello, World!' to /home/user/gradle/samples/groovy/build/file.txt
 
 > Task :consumer
 Hello, World!
