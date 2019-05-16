@@ -29,5 +29,5 @@ val producer by tasks.registering(Producer::class) {
 val consumer by tasks.registering(Consumer::class) {
     // Connect the producer task output to the consumer task input
     // Don't need to add a task dependency to the consumer task. This is automatically added
-    message.set(producer.flatMap { it.outputFile.get().asFile.readText() })
+    message.set(producer.map { it.outputFile.get().asFile.readText() })
 }
