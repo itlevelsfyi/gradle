@@ -26,7 +26,7 @@ task consumer(type: Consumer)
 
 // Connect the producer task output to the consumer task input
 // Don't need to add a task dependency to the consumer task. This is automatically added
-consumer.input = producer.outputFile.map { it.text }
+consumer.message = producer.outputFile.map { it.text }
 
 // Set values for the producer lazily
 producer.outputFile = layout.buildDirectory.file('file.txt')
